@@ -1,7 +1,13 @@
 class Comment < ApplicationRecord
-  belongs_to :user, :post
+  belongs_to :user, foreign_key: 'author_id'
+  belongs_to :post
 # A method that updates the comments counter for a post.
-  def update_comments_counter(id,comment)
-    Post.find(id).update(comments_counter :comment)
-  end
+after_save :update_comments_count
+
+private
+
+def update_comments_count
+  post.increment!(:comments_counter)
+end
+
 end
