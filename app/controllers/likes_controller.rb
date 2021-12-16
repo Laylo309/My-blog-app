@@ -1,4 +1,3 @@
 class LikesController < ApplicationController
-  def likes
-  end
+  def likes; end
 end

@@ -1,4 +1,3 @@
 class CommentsController < ApplicationController
-  def comments
-  end
+  def comments; end
 end
