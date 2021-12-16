@@ -1,1 +1,11 @@
-<h1>This is a post for users</h1>
+<div>
+<h2>Post #<%= @post.id%> by <%=@user.name%></h2>
+<div>
+Comments: <%= @post.comments_counter%>, Likes: <%@post.likes_counter%>
+<p><%= @post.text%></p>
+</div>
+
+<div>
+<%= render partial: 'comments/comment', collection: @comments%>
+</div>
+</div>

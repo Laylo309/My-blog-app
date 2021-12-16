@@ -1,1 +1,15 @@
-<h1>All posts</h1>
+<%= render partial: 'users/user', object: @user%>
+<div>
+<% @posts.each do |post| %>
+<%=link_to user_post_path(@user.id, post.id) do%>
+<%= render partial: 'post', object:post %>
+<div class="comments">
+<%= render partial: 'comments/comment', collection: post.recent_comments %>
+</div>
+<%end%>
+<%end%>
+</div>
+
+<div class="pagination">
+<button type="button" class="">Pagination</button>
+</div>
