@@ -1,1 +1,14 @@
-<h1>User Profile</h1>
+<%= render partial: 'user', object: @user %>
+
+<div class="">
+<h3>Bio</h3>
+<%= @user.bio %>
+</div>
+
+<% @posts.each do |post| %>
+<%= render partial: 'posts/post', locals: { post: post} %>
+<%end%>
+
+<div class="">
+<%= link_to "See all posts", user_posts_path(@user.id) %>
+</div>
