@@ -1,14 +1,25 @@
 <%= render partial: 'user', object: @user %>
 
-<div class="">
-<h3>Bio</h3>
-<%= @user.bio %>
+
+<div class="container">
+ <div class="card border-secondary mb-3 mt-5">
+  <div class="card-body">
+    <h4 class="card-title">Bio</h4>
+    <p class="card-text"><%= @user.bio %></p>
+  </div>
 </div>
 
+<div>
 <% @posts.each do |post| %>
-<%= render partial: 'posts/post', locals: { post: post} %>
-<%end%>
+<div class= "user-data mb-3">
+  <div class="card-body">
+<%= render partial: 'posts/post', object: post %>
+</div>
+</div>
+<% end %>
+</div>
 
-<div class="">
-<%= link_to "See all posts", user_posts_path(@user.id) %>
+<div>
+<button type="button" class="d-grid gap-2 col-1 mx-auto"><%= link_to "See all posts", user_posts_path(@user.id), class: "text-decoration-none text-color" %></button>
+</div>
 </div>

@@ -1,3 +1,19 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.container {
+  .user-data {
+    border: 1px solid rgb(73, 72, 72);
+    text-decoration: none;
+    color: black;
+  }
+
+  .user-stats {
+    padding-left: 80%;
+  }
+}
+
+.text-color {
+  color: black;
+}
