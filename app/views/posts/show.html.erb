@@ -1,12 +1,12 @@
 <div class="container">
- <div class= "user-data mt-4">
- <div class="d-flex p-2 justify-content-between">
-  <h5>Post #<%= @post.id%> by <%=@user.name%></h5>
-  <p>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter%></p>
- </div>
+  <div class= "user-data mt-4">
+    <div class="d-flex p-2 justify-content-between">
+      <h5>Post #<%= @post.id%> by <%=@user.name%></h5>
+      <p>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter%></p>
+    </div>
     <p class="p-2"><%= @post.text%></p>
-
- <div class= "user-data mt-4">
-  <%= render partial: 'comments/comment', collection: @comments%>
- </div>
+  </div>
+  <div class= "user-data mt-4">
+    <%= render partial: 'comments/comment', collection: @comments%>
+  </div>
 </div>

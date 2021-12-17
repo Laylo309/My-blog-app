@@ -1,11 +1,11 @@
 <div class = "container">
-<div class=" user-container d-flex align-items-center mb-3 p-2 flex-shrink-1 bd-highlight">
-  <div class=" user-photo">
-   <img src=<%= get_img(user)%> alt='user photo'>
+  <div class=" user-container d-flex align-items-center mb-3 p-2 flex-shrink-1 bd-highlight">
+    <div class=" user-photo">
+      <img src=<%= get_img(user)%> alt='user photo'>
+    </div>
+    <div class="user-data flex-grow-1 ms-3 p-2 w-100 bd-highlight">
+      <h2 class='user-name text-decoration-none'><%= user.name %></h2>
+      <span class='user-stats bottom-align-text'>Number of posts: <%= user.posts_counter%></span>
+    </div>
   </div>
-  <div class="user-data flex-grow-1 ms-3 p-2 w-100 bd-highlight">
-     <h2 class='user-name text-decoration-none'><%= user.name %></h2>
-    <span class='user-stats bottom-align-text'>Number of posts: <%= user.posts_counter%></span>
-  </div>
-</div>
 </div>
