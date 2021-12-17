@@ -1,6 +1,6 @@
 <%= form_with url: posts_path, scope: :post do |form|%>
   <div class = "container">
-  <h1>Create Post</h1>
+    <h1>Create Post</h1>
     <div>
       <%= form.label :title, "Title"%>
       <%= form.text_field :title, placeholder: "Enter post title", required: true,class: "user-data form-control m-3"%>
