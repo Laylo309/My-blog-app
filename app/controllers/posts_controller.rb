@@ -12,9 +12,9 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @current_user  = self.current_user
+    @current_user = current_user
   end
-  
+
   def create
     @post = Post.new(params.require(:post).permit(:author_id, :title, :text, :comments_counter, :likes_counter))
 
