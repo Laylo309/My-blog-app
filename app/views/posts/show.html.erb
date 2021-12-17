@@ -5,6 +5,10 @@
       <p>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter%></p>
     </div>
     <p class="p-2"><%= @post.text%></p>
+    <%= render partial: "likes/new_like", post: @post%>
+  </div>
+  <div>
+    <%= render partial: "comments/new_comment", post: @post%>
   </div>
   <div class= "user-data mt-4">
     <%= render partial: 'comments/comment', collection: @comments%>

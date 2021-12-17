@@ -1,5 +1,6 @@
 <%= render partial: 'users/user', object: @user%>
 <div class="container">
+  <button type="button" class="d-grid col-1"><%= link_to "Add post" , new_post_path ,class: "text-decoration-none text-color" %></button>
   <% @posts.each do |post| %>
     <%=link_to user_post_path(@user.id, post.id), class: "text-decoration-none text-color" do%>
       <div class="user-data mt-4">
