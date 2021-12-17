@@ -1,0 +1,17 @@
+<%= form_with url: posts_path, scope: :post do |form|%>
+  <div class = "container">
+  <h1>Create Post</h1>
+    <div>
+      <%= form.label :title, "Title"%>
+      <%= form.text_field :title, placeholder: "Enter post title", required: true,class: "user-data form-control m-3"%>
+    </div>
+    <div>
+      <%= form.label :text, "Text"%>
+      <%= form.text_area :text, placeholder: "Enter post", rows:20, required: true,class: "user-data form-control m-3"%>
+    </div>
+    <%= form.hidden_field :author_id, value: @current_user.id %>
+    <%= form.hidden_field :comments_counter, value: 0 %>
+    <%= form.hidden_field :likes_counter, value: 0 %>
+    <%= form.submit "Publish"%>
+  <% end%>
+</div>
