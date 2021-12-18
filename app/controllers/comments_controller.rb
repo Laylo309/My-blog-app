@@ -5,9 +5,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        if comment.save redirect_to user_post_path(post.user.id, post.id)
-        else
-          flash[:alert] = "Error: comment is not published"
+        redirect_to user_post_path(post.user.id, post.id) if comment.save
       end
     end
   end
@@ -19,6 +17,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text)
+    params.require(:data).permit(:text)
   end
 end
+
