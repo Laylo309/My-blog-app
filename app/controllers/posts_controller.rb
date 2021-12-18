@@ -20,10 +20,11 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html do
-       if @post.save  redirect_to user_post_path(@post.user.id, @post.id) 
-       else 
-        flash[:alert] = "Error: post is not published"
-       end
+        if @post.save
+          redirect_to user_post_path(@post.user.id, @post.id)
+        else
+          flash[:alert] = 'Error: post is not published'
+        end
       end
     end
   end
