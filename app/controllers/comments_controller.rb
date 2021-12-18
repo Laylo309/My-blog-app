@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html do
         if comment.save
+          flash[:success] = 'Comment successfully created.'
           redirect_to user_post_path(post.user.id, post.id)
         else
           flash[:alert] = 'Error: comment is not published'

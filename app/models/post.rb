@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   after_save :increment_counter
   validates :title, presence: true
   validates :text, presence: true, length: { maximum: 250 }
-  validates :comments_counter, :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :comments_counter, :likes_counter, numericality: { only_integer: true, greater_than: 0 }
 
   def increment_counter
     user.update(posts_counter: user.posts_counter + 1)

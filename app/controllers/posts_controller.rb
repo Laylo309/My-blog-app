@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html do
         if @post.save
+          flash[:success] = 'Post successfully created.'
           redirect_to user_post_path(@post.user.id, @post.id)
         else
           flash[:alert] = 'Error: post is not published'
