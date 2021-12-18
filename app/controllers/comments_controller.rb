@@ -5,7 +5,11 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to user_post_path(post.user.id, post.id) if comment.save
+        if comment.save
+        redirect_to user_post_path(post.user.id, post.id)
+      else
+        flash[:alert] = 'Error: comment is not published'
+      end
       end
     end
   end
