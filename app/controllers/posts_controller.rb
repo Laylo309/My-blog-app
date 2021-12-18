@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @user = User.find(params[:user_id])
-    @post = @user.posts.find(params[:id])
+    @post = @user.posts.includes(:comments).find(params[:id])
     @comments = @post.comments.all
   end
 
@@ -20,7 +20,10 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to user_post_path(@post.user.id, @post.id) if @post.save
+       if @post.save  redirect_to user_post_path(@post.user.id, @post.id) 
+       else 
+        flash[:alert] = "Error: post is not published"
+       end
       end
     end
   end

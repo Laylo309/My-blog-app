@@ -3,6 +3,9 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
   after_save :update_posts_counter
+  validates :title, presence: true
+  validates :text, presence: true, length: {maximum: 250}
+  validates :comments_counter, :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   # A method that updates the posts counter for a user.
   def update_posts_counter
     user.increment!(:posts_counter)
