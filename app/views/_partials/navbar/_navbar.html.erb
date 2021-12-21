@@ -1,17 +1,28 @@
-<div class="d-flex justify-content-center nav-style mb-2">
-  <div class="d-flex justify-space-between users-list p-05">
-    <div class="d-flex">
-      <%= link_to root_path, class: 'link-to-default nav-link-style' do %>
-        <h2 class="mr-2">Oracle Blog</h2>
-      <% end %>
-      <%= link_to user_posts_path(@current_user.id), :action => 'go', class: 'link-to-default nav-link-style' do %>
+<div class="d-flex justify-content-between nav-style mb-2">
+  <div class="d-flex justify-content-around users-list p-05 navbar">
+    <%= link_to root_path, class: 'link-to-default nav-link-style text-decoration-none text-color' do %>
+      <h2 class="mr-2">My blog app</h2>
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to user_posts_path(@current_user.id), :action => 'go', class: 'link-to-default nav-link-style text-decoration-none text-color' do %>
         <h2>Your Posts</h2>
       <% end %>
-    </div>
-    <div>
-      <%= link_to new_user_post_path(@current_user.id), :action => 'go', class: 'link-to-default nav-link-style' do %>
-        <button type="submit" class="post-btn">New Post</button>
-      <% end %>
+    <% end %>
+    <div class="d-flex justify-content-between navbar-button">
+      <div>
+        <% if user_signed_in? %>
+          <%= link_to  new_user_post_path(@current_user.id), :action => 'go', class: 'link-to-default nav-link-style' do %>
+            <button type="submit" class="post-btn mr-2">New Post</button>
+          <% end %>
+        <% end %>
+      </div>
+      <div>
+        <% if user_signed_in?%>
+          <%= link_to  destroy_user_session_path, :method => :delete, class: 'link-to-default nav-link-style' do %>
+            <button type="submit" class="post-btn">Log Out</button>
+          <% end %>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>
