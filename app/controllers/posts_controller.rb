@@ -31,4 +31,16 @@ class PostsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @user = User.find_by_id(@post.author_id)
+    if @post.destroy
+      flash[:success] = 'Post successfully deleted.'
+      redirect_to user_posts_path(@user.id)
+    else 
+      flash[:alert] = 'Error: post is not deleted.'
+      redirect_back(fallback_location: root_path)
+    end
+  end
 end

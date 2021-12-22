@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by_id(params[:id])
     if @comment.destroy
       flash[:success] = 'Comment successfully deleted.'
-      redirect_to user_post_path(@post.user.id, @post.id)
+      redirect_to user_post_path(@user.id, @post.id)
     else 
       flash[:alert] = 'Error: comment is not deleted.'
       redirect_back(fallback_location: root_path)
