@@ -32,13 +32,13 @@ To get a local copy up and running follow these simple example steps.
 - Configuring DB access:
   - Inside the database.yml file modify the Env variables for getting the username and password to access psql database;
 - Creating DB (if needed):
-  - Run `rails db:create` to create a empty databse for the project.   
-  
-### Run Website  
+  - Run `rails db:create` to create a empty databse for the project.
+
+### Run Website
 
 - Run `rails s` for starting the server;
 - Access [http://localhost:3000/](http://localhost:3000/) in a browser of your choice.
-  
+
 ### Run Linters
 
 - Run rubocop locally with: `Rspec .` to run all tests or `Rspec [file]` for testing a specific file;
@@ -46,7 +46,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Run Tests
 
--  Run `rails spec`
+- Run `rails spec`
 
 ## Author
 
@@ -55,6 +55,12 @@ To get a local copy up and running follow these simple example steps.
 - GitHub: [@Laylo309](https://github.com/Laylo309)
 - Twitter: [@Laylo](https://twitter.com/home?lang=en)
 - LinkedIn: [LayloKhodjaeva](https://www.linkedin.com/in/laylo-khodjaeva-05a972207/)
+
+👤 **Juan Gonzalez**
+
+- GitHub: [@JbirdL86](https://github.com/JbirdL86)
+- Twitter: [@twitterhandle](https://twitter.com/JuanLui06498455)
+- Linkedin: [linkedin](https://www.linkedin.com/in/juan-luis-0551921aa/)
 
 ## 🤝 Contributing
 
