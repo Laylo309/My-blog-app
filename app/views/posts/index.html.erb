@@ -6,10 +6,16 @@
       <div class="user-data mt-4">
         <%= render partial: 'post', object:post %>
       </div>
+      <% if can? :destroy, post %>
+        <button>
+          <%= link_to "Delete post", post_path(post.id) ,class: "text-decoration-none text-color" , method: "delete" %>
+        </button>
+      <% end %>
       <div class="user-data mt-2">
         <%= render partial: 'comments/comment', locals:{post:post}, collection: post.recent_comments %>
       </div>
     <%end%>
+    
   <%end%>
   <div class="pagination">
     <button type="button" class="d-grid gap-2 col-1 mx-auto mt-3">Pagination</button>
