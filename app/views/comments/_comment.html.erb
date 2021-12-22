@@ -1,3 +1,6 @@
 <div class= "container">
+<div class= "container">
   <%= comment.user.name%>: <%= comment.text%>
+</div>
+<button type="button"><%= link_to "Delete" , post_comment_path(post.id, comment.id) ,class: "text-decoration-none text-color" , method: "delete"%></button>
 </div>

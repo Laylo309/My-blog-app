@@ -11,6 +11,6 @@
     <%= render partial: "comments/new_comment", post: @post%>
   </div>
   <div class= "user-data mt-4">
-    <%= render partial: 'comments/comment', collection: @comments%>
+    <%= render partial: 'comments/comment', collection: @comments, locals:{post: @post}%>
   </div>
 </div>

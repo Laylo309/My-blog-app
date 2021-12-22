@@ -7,7 +7,7 @@
         <%= render partial: 'post', object:post %>
       </div>
       <div class="user-data mt-2">
-        <%= render partial: 'comments/comment', collection: post.recent_comments %>
+        <%= render partial: 'comments/comment', locals:{post:post}, collection: post.recent_comments %>
       </div>
     <%end%>
   <%end%>
