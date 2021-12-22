@@ -16,6 +16,7 @@ class Post < ApplicationRecord
   def destroy_posts_counter
     user.decrement!(:posts_counter)
   end
+
   # A method that returns the 5 most recent posts for a given post.
   def recent_comments
     comments.order(created_at: :desc).limit(5)

@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     if @post.destroy
       flash[:success] = 'Post successfully deleted.'
       redirect_to user_posts_path(@user.id)
-    else 
+    else
       flash[:alert] = 'Error: post is not deleted.'
       redirect_back(fallback_location: root_path)
     end
