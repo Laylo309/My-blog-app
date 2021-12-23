@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   def index
     @users = User.all
     @current_user = current_user
@@ -16,6 +17,10 @@ class UsersController < ApplicationController
 
   def edit
     current_user.update(user_params)
+  end
+
+  def admin?
+    role == 'admin'
   end
 
   private

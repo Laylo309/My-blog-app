@@ -2,18 +2,14 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # Define abilities for the passed in user here. For example:
-    can :read, User, user: user
-    can :read, Post, user: user
-    can :read, Comment, user: user
-    can :read, Like, user: user
-    return unless user.present?
+    user ||= User.new # guest user (not logged in)
 
-    can %i[update destroy], Post, author_id: user.id
-    can %i[update destroy], Comment, author_id: user.id
-
-    return unless user.is? :admin
-
-    can :manage, :all
+    if user.is? :admin
+      can :manage, :all
+    else
+      can :manage, Post, author_id: user.id # owner of post can perform all view, update or destroy own post if Post.author == user
+      can :manage, Comment, author_id: user.id
+      can :read, :all
+    end
   end
 end
