@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   def index
     @users = User.all
     @current_user = current_user
@@ -18,9 +19,13 @@ class UsersController < ApplicationController
     current_user.update(user_params)
   end
 
+  def admin?
+    role == 'admin'
+  end
+
   private
 
   def users_params
-    params.require(:user).permit(:name, :bio, :photo, :posts_counter, :email, :password)
+    params.require(:user).permit(:name, :bio, :photo, :posts_counter, :email, :password, :role)
   end
 end

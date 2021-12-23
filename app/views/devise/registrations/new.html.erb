@@ -22,6 +22,7 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
     <%= f.hidden_field :posts_counter, value: 0 %>
+    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
     <div class="actions">
       <%= f.submit "Sign up" %>
        <%= render "devise/shared/links" %>

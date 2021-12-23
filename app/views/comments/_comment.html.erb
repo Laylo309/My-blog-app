@@ -1,3 +1,10 @@
 <div class= "container">
-  <%= comment.user.name%>: <%= comment.text%>
+  <div class= "container">
+    <%= comment.user.name %>: <%= comment.text %>
+  </div>
+  <% if can? :destroy, comment %>
+    <button>
+      <%= link_to "Delete", post_comment_path(post.id, comment.id) ,class: "text-decoration-none text-color" , method: "delete" %>
+    </button>
+  <% end %>
 </div>

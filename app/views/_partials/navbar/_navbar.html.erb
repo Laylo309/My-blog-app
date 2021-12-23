@@ -4,6 +4,7 @@
       <h2 class="mr-2">My blog app</h2>
     <% end %>
     <% if user_signed_in? %>
+      <%= @current_user.name %>
       <%= link_to user_posts_path(@current_user.id), :action => 'go', class: 'link-to-default nav-link-style text-decoration-none text-color' do %>
         <h2>Your Posts</h2>
       <% end %>
