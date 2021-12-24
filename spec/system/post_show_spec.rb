@@ -43,7 +43,7 @@ RSpec.describe 'Post show page', type: :feature do
 
     it 'Should show how many comments a post has' do
       users = User.all
-      
+
       users.each do |user|
         visit user_post_path(user.id)
         recent_posts = user.recent_posts
@@ -52,11 +52,11 @@ RSpec.describe 'Post show page', type: :feature do
         end
         visit root_path
       end
-    end 
-    
+    end
+
     it 'Should show how many likes a post has' do
       users = User.all
-      
+
       users.each do |user|
         visit user_post_path(user.id)
         recent_posts = user.recent_posts
@@ -89,13 +89,13 @@ RSpec.describe 'Post show page', type: :feature do
         recent_posts.each do |post|
           recent_comments = post.recent_comments
           recent_comments.each do |comment|
-            expect(page).to have_content "#{comment.user.name}"
+            expect(page).to have_content comment.user.name.to_s
           end
         end
         visit root_path
       end
-    end 
-       
+    end
+
     it 'can see the comment each commentor left' do
       users = User.all
 
@@ -105,7 +105,7 @@ RSpec.describe 'Post show page', type: :feature do
         recent_posts.each do |post|
           recent_comments = post.recent_comments
           recent_comments.each do |comment|
-            expect(page).to have_content "#{comment.text}"
+            expect(page).to have_content comment.text.to_s
           end
         end
         visit root_path

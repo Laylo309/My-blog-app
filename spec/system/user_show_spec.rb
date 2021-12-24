@@ -77,7 +77,7 @@ RSpec.describe 'the user index page', type: :feature do
         visit user_path(user.id)
         recent_posts = user.recent_posts
         recent_posts.each do |post|
-          expect(page).to have_content "#{post.text}"
+          expect(page).to have_content post.text.to_s
         end
 
         visit root_path
@@ -89,11 +89,10 @@ RSpec.describe 'the user index page', type: :feature do
 
       users.each do |user|
         visit user_path(user.id)
-          expect(page).to have_content "See all posts"
+        expect(page).to have_content 'See all posts'
         visit root_path
       end
     end
-
   end
 
   context 'is redirect to user post page index' do
@@ -112,5 +111,3 @@ RSpec.describe 'the user index page', type: :feature do
     end
   end
 end
-
-

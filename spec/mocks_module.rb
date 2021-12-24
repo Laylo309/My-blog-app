@@ -9,8 +9,6 @@ module Mocks
     ]
 
     (0..2).each do |i|
-      
-
       visit new_user_registration_path
       within('form') do
         fill_in 'Email', with: names[i]['email']

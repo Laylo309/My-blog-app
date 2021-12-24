@@ -3,12 +3,12 @@ require './spec/mocks_module'
 
 RSpec.describe 'the user post index page', type: :feature do
   include Mocks
-  before :each do 
+  before :each do
     users = create_users
     posts = create_posts(users)
     visit new_user_session_path
 
-    within('form') do 
+    within('form') do
       fill_in 'Email', with: 'jgonzalez.wj@gmail.com'
       fill_in 'Password', with: '123456'
     end
@@ -80,8 +80,8 @@ RSpec.describe 'the user post index page', type: :feature do
         recent_posts.each do |post|
           recent_comments = post.recent_comments
           recent_comments.each do |comment|
-            expect(page).to have_content "#{comment.user.name}"
-            expect(page).to have_content "#{comment.text}"
+            expect(page).to have_content comment.user.name.to_s
+            expect(page).to have_content comment.text.to_s
           end
         end
         visit root_path
@@ -90,7 +90,7 @@ RSpec.describe 'the user post index page', type: :feature do
 
     it 'Should show how many comments a post has' do
       users = User.all
-      
+
       users.each do |user|
         visit user_posts_path(user.id)
         recent_posts = user.recent_posts
@@ -99,11 +99,11 @@ RSpec.describe 'the user post index page', type: :feature do
         end
         visit root_path
       end
-    end 
-    
+    end
+
     it 'Should show how many likes a post has' do
       users = User.all
-      
+
       users.each do |user|
         visit user_posts_path(user.id)
         recent_posts = user.recent_posts
@@ -119,7 +119,7 @@ RSpec.describe 'the user post index page', type: :feature do
 
       users.each do |user|
         visit user_posts_path(user.id)
-          expect(page).to have_content "Pagination"
+        expect(page).to have_content 'Pagination'
         visit root_path
       end
     end
@@ -127,7 +127,7 @@ RSpec.describe 'the user post index page', type: :feature do
     context 'it redirects to that posts show page' do
       it 'compares user path with current path' do
         users = User.all
-  
+
         users.each do |user|
           click_link user.name
           recent_posts = user.recent_posts

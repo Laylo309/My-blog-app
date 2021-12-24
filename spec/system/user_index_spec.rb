@@ -6,7 +6,7 @@ RSpec.describe 'the user index page', type: :feature do
   include Mocks
   before :each do
     users = create_users
-    
+
     visit new_user_session_path
 
     within('form') do
