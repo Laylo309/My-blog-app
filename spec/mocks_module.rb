@@ -28,7 +28,7 @@ module Mocks
   def create_posts(users)
     users.each do |user|
       (1..5).each do |j|
-        visit new_user_post(user.id)
+        visit new_user_post_path(user.id)
         within('form') do
           fill_in 'title', with: "#{user.name} post #{j}"
           fill_in 'text', with: "#{user.name} text #{j}"
