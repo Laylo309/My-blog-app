@@ -8,5 +8,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end
+
+  namespace  :api, defaults: {format: :json} do
+    resources :posts, only: [:index] do
+      resources :comments, only: [:index, :create]
+    end
+  end
 root 'users#index'
 end
