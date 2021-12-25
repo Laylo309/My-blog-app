@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     return unless @user.save
+
     flash[:success] = 'Signed in successfully'
     redirect_to root_path
   end

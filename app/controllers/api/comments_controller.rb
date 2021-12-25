@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
   load_and_authorize_resource
-  protect_from_forgery with: :null_session, if: ->{request.format.json?}
+  protect_from_forgery with: :null_session, if: -> { request.format.json? }
 
   def index
     @comments = Comment.where({ post_id: params[:post_id] }).order('created_at')
