@@ -20,7 +20,7 @@
       <div>
         <% if user_signed_in?%>
           <%= link_to  destroy_user_session_path, :method => :delete, class: 'link-to-default nav-link-style' do %>
-            <button type="submit" class="post-btn">Log Out</button>
+            <button type="submit" id="logout" class="post-btn">Log Out</button>
           <% end %>
         <%end%>
       </div>

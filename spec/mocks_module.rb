@@ -11,13 +11,14 @@ module Mocks
     (0..2).each do |i|
       visit new_user_registration_path
       within('form') do
-        fill_in 'Email', with: names[i]['email']
-        fill_in 'Name', with: names[i]['name']
+        fill_in 'Email', with: names[i][:email]
+        fill_in 'Name', with: names[i][:name]
         fill_in 'Password', with: '123456'
         fill_in 'Password confirmation', with: '123456'
         select 'User', from: 'user[role]'
       end
       click_button 'commit'
+      click_button 'logout'
     end
 
     User.all

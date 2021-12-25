@@ -1,21 +1,6 @@
 require 'rails_helper'
 
-require './spec/mocks_module'
-
 RSpec.describe 'the user index page', type: :feature do
-  include Mocks
-
-  before :each do
-    users = create_users
-    posts = create_posts(users)
-    visit new_user_session_path
-
-    within('form') do
-      fill_in 'Email', with: 'jgonzalez.wj@gmail.com'
-      fill_in 'Password', with: '123456'
-    end
-    click_button 'Log in'
-  end
 
   context 'displaying user show page correctly' do
     it 'can see user picture' do
