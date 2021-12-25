@@ -1,11 +1,11 @@
 require 'rails_helper'
 require './spec/mocks_module'
-
+# rubocop:disable Metrics/BlockLength
 RSpec.describe 'the user post index page', type: :feature do
   include Mocks
   before :each do
     users = create_users
-    posts = create_posts(users)
+    create_posts(users)
     visit new_user_session_path
 
     within('form') do
@@ -140,3 +140,4 @@ RSpec.describe 'the user post index page', type: :feature do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
