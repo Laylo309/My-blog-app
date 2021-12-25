@@ -1,8 +1,6 @@
 require 'rails_helper'
 
-
 RSpec.describe 'the user index page', type: :feature do
-
   context 'It should show the name of all users' do
     it 'Should list all users' do
       users = User.all

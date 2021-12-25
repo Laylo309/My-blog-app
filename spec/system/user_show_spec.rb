@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'the user index page', type: :feature do
-
   context 'displaying user show page correctly' do
     it 'can see user picture' do
       users = User.all

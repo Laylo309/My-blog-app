@@ -2,7 +2,6 @@ require 'rails_helper'
 require './spec/mocks_module'
 
 RSpec.describe 'the user post index page', type: :feature do
-
   context 'displaying user post index page correctly' do
     it 'can see user picture' do
       users = User.all
@@ -13,7 +12,7 @@ RSpec.describe 'the user post index page', type: :feature do
         expect(img['src']).to include(user.name)
         visit root_path
       end
-    end    
+    end
 
     context 'it redirects to that posts show page' do
       it 'compares user path with current path' do
