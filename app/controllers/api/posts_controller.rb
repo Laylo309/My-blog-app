@@ -3,6 +3,6 @@ class Api::PostsController < ApplicationController
 
   def index
     @post = Post.all.order('created_at')
-    render json: {success: true, data: {posts: @posts}}
+    render json: { success: true, data: { posts: @posts } }
   end
 end
