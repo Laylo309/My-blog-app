@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# rubocop:disable Metrics/BlockLength
 RSpec.describe 'Post show page', type: :feature do
   include Mocks
 
@@ -99,3 +99,4 @@ RSpec.describe 'Post show page', type: :feature do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

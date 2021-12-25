@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+# rubocop:disable Metrics/BlockLength
 RSpec.describe 'the user index page', type: :feature do
   context 'displaying user show page correctly' do
     it 'can see user picture' do
@@ -95,3 +95,4 @@ RSpec.describe 'the user index page', type: :feature do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
