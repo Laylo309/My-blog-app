@@ -1,5 +1,6 @@
 class Api::CommentsController < ApplicationController
   load_and_authorize_resource
+  protect_from_forgery with: :null_session, if: ->{request.format.json?}
 
   def index
     @comments = Comment.where({ post_id: params[:post_id] }).order('created_at')
@@ -8,7 +9,9 @@ class Api::CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(text: comment_params[:text], user: current_user)
+    @comment = Comment.new(text: comment_params[:text])
+    @comment.author_id = current_user.id
+    @comment.post_id = @post.id
 
     if @comment.save
       render json: { success: true, data: { comment: @comment } }, status: :created
