@@ -10,7 +10,9 @@
     <% @posts.each do |post| %>
       <div class= "user-data mb-3">
         <div class="card-body">
-          <%= render partial: 'posts/post', object: post %>
+          <%= link_to user_post_path(@user.id, post.id), class: "text-decoration-none text-color"  do %>
+            <%= render partial: 'posts/post', object: post %>
+          <%end%>
         </div>
       </div>
     <% end %>

@@ -1,11 +1,12 @@
 names = [
-	{ name: 'Nelsino', bio: "I'm the last oracle", posts_counter: 0, email:'foo1@foo.com', role: 'admin'},
-	{ name: 'Hamza', bio: "I'm the First oracle", posts_counter: 0, email:'foo2@foo.com', role: 'admin'},
-	{ name: 'Herbert', bio: "I'm the Best oracle", posts_counter: 0, email:'foo3@foo.com', role: 'admin'},
+
+  { name: 'Nelsino', bio: "I'm the last oracle", posts_counter: 0, email:'foo1@foo.com', role: 'admin'},
+  { name: 'Hamza', bio: "I'm the First oracle", posts_counter: 0, email:'foo2@foo.com', role: 'admin'},
+  { name: 'Herbert', bio: "I'm the Best oracle", posts_counter: 0, email:'foo3@foo.com', role: 'admin'},
   { name: 'Laylo', bio: "I'm the sleep oracle", posts_counter: 0, email:'foo4@foo.com', role: 'user'},
   { name: 'Juan', bio: "I'm the bird oracle", posts_counter: 0, email:'foo5@foo.com', role: 'user'}
   ]
-
+  
   for i in 0..4 do
     user = User.new(names[i])
     user.password = 'admin123'
