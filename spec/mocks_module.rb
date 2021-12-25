@@ -3,22 +3,16 @@ require 'user'
 module Mocks
   def create_users
     names = [
-      { name: 'juanito', bio: "I'm the last oracle", posts_counter: 0, email: 'jgonzalez.wj@gmail.com', role: 'admin' },
-      { name: 'Nelsino', bio: "I'm the First oracle", posts_counter: 0, email: 'test1@foo.com', role: 'admin' },
-      { name: 'Laylo', bio: "I'm the Best oracle", posts_counter: 0, email: 'test2@foo.com', role: 'admin' }
+      { name: 'Nelsino', bio: "I'm the last oracle", posts_counter: 0, email: 'foo1@foo.com', role: 'admin' },
+      { name: 'Hamza', bio: "I'm the First oracle", posts_counter: 0, email: 'foo2@foo.com', role: 'admin' },
+      { name: 'Herbert', bio: "I'm the Best oracle", posts_counter: 0, email: 'foo3@foo.com', role: 'admin' }
     ]
 
     (0..2).each do |i|
-      visit new_user_registration_path
-      within('form') do
-        fill_in 'Email', with: names[i][:email]
-        fill_in 'Name', with: names[i][:name]
-        fill_in 'Password', with: '123456'
-        fill_in 'Password confirmation', with: '123456'
-        select 'User', from: 'user[role]'
-      end
-      click_button 'commit'
-      click_button 'logout'
+      user = User.new(names[i])
+      user.password = 'admin123'
+      user.password_confirmation = 'admin123'
+      user.save
     end
 
     User.all
@@ -27,12 +21,8 @@ module Mocks
   def create_posts(users)
     users.each do |user|
       (1..5).each do |j|
-        visit new_user_post_path(user.id)
-        within('form') do
-          fill_in 'title', with: "#{user.name} post #{j}"
-          fill_in 'text', with: "#{user.name} text #{j}"
-        end
-        click_button 'Publish'
+        Post.create(title: "Post number: #{j}", text: "I'm writing my post number: #{j}", comments_counter: 0,
+                    likes_counter: 0, author_id: user.id)
       end
     end
 
