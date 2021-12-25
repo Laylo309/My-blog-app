@@ -1,3 +1,4 @@
+# rubocop disable: Lint/UselessAssignment
 class RegistrationsController < Devise::RegistrationsController
   before_action :configure_permitted_parameters
   respond_to :json
@@ -33,3 +34,4 @@ class RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[name posts_counter email password role])
   end
 end
+# rubocop enable: Lint/UselessAssignment
