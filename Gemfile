@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |_repo| 'https://github.com/Laylo309/My-blog-app.git' }
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
